@@ -61,4 +61,4 @@
 ## 💬 Contact & Contribution
 - 如果有疑问，请提交 Issue
 - 如果有兴趣，欢迎提交 PR
-- 其他问题，请联系我：codemo1991@gmail.com
+- 其他问题，请联系我：codemo1991@gmail.com 或者 discord: https://discord.gg/z7MW5UK4
