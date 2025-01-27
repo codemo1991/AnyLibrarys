@@ -61,4 +61,5 @@ Due to the existence of a large number of documents and materials, many scenario
 ## 💬 Contact & Contribution
 - If you have questions, please submit an Issue
 - If you're interested, welcome to submit a PR
-- For other inquiries, please contact me at: codemo1991@gmail.com
+- For other inquiries, please contact me at: codemo1991@gmail.com or discord: https://discord.gg/z7MW5UK4
+  
