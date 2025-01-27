@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  minio:
+    image: minio/minio
+    container_name: minio
+    restart: always
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+
+  tika:
+    image: apache/tika
+    container_name: tika
+    restart: always
+    ports:
+      - "9998:9998"
+
+  milvus:
+    image: milvusdb/milvus:v2.4.0
+    container_name: milvus
+    restart: always
+    command: ["milvus", "run", "standalone"]
+    ports:
+      - "19530:19530"
+      - "19121:19121"
+    environment:
+      - MILVUS_LOG_LEVEL=debug
+      - ETCD_USE_EMBED=true
+      - MINIO_USE_EMBED=false  # ✅ 关闭 Milvus 自带 MinIO
+      - MINIO_ADDRESS=minio:9000  # ✅ 让 Milvus 连接 MinIO
+      - MINIO_ACCESS_KEY=minioadmin
+      - MINIO_SECRET_KEY=minioadmin
+    depends_on:
+      - minio
+    volumes:
+      - milvus_data:/var/lib/milvus
+
+  attu:
+    image: zilliz/attu:v2.4.0
+    container_name: attu
+    restart: always
+    environment:
+      - MILVUS_URL=milvus:19530
+    ports:
+      - "8000:3000"
+    depends_on:
+      - milvus
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.1
+    container_name: es01
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - xpack.security.transport.ssl.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      # 这里使用命名卷 es_data
+      - es_data:/usr/share/elasticsearch/data
+    networks:
+      - esnet
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.10.1
+    container_name: kib01
+    environment:
+      - ELASTICSEARCH_HOSTS=http://es01:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    networks:
+      - esnet
+
+
+networks:
+  esnet:
+    driver: bridge
+
+volumes:
+  minio_data:
+  milvus_data:
+  es_data:
