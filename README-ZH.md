@@ -34,3 +34,8 @@
 - [ ] 支持LLM提问和回答
 - [ ] 支持指定pdf提问和回答
 - [ ] 其他功能
+
+## 💬 Contact & Contribution
+- 如果有疑问，请提交 Issue
+- 如果有兴趣，欢迎提交 PR
+- 其他问题，请联系我：codemo1991@gmail.com
