@@ -1,5 +1,6 @@
 <div align="center">
  <h1>📚 任意图书馆 📚</h1>
+   <h2> <a href="README.md">🇺🇸 English Document</a></h2>
 </div>
 
 ### 文档上传和文档搜索

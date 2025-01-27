@@ -1,5 +1,6 @@
 <div align="center">
  <h1>📚 Any Library 📚</h1>
+  <h2> <a href="README-ZH.md">🇨🇳 中文文档</a></h2>
 </div>
 
 ### Document Upload and Document Search
