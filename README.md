@@ -36,3 +36,8 @@ With the existence of vast amounts of documents and materials, many scenarios re
 - [ ] Support questions and answers for specific PDFs
 - [ ] Other features
 
+## 💬 Contact & Contribution
+- If you have any questions, please submit an Issue
+- If you're interested, feel free to submit a PR
+- For other inquiries, please contact me at: codemo1991@gmail.com
+
