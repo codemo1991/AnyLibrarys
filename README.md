@@ -1,43 +1,63 @@
 <div align="center">
- <h1>📚 Universal Library 📚</h1>
+ <h1>📚 Any Library 📚</h1>
 </div>
 
-### Document Upload and Search System
+### Document Upload and Document Search
 
 ## 🎯 Overall Concept
-With the existence of vast amounts of documents and materials, many scenarios require tracking documents based on specific sentences or images, along with interpreting document content. In traditional search operations, combining search engines and vector queries with LLM can achieve many unexpected extended functionalities.
+Due to the existence of a large number of documents and materials, many scenarios require tracking documents based on specific sentences or images and interpreting their contents. In traditional search operations, combining search engines and vector queries with LLM can achieve many unexpected extended functionalities.
 
-## 🏗️ Architecture 
-- Elasticsearch: Stores precise text, provides accurate queries
-- Apache Tika: Extracts text from various document formats
-- Milvus: Stores vector data, provides vector similarity search
-- Minio: Stores files, provides file upload and download capabilities
-- Streamlit: Frontend interface
+## 🏗️ Overall Architecture
+- Elasticsearch stores exact text and provides precise queries
+- Apache Tika extracts various text documents
+- Milvus stores vector data and provides vector queries
+- Minio stores files, provides file upload and download
+- Streamlit for frontend display
 
 ## 📁 Directory Structure
-- /test: Testing directory
-- /upload.py: Document upload and semantic search, program entry point
-- /requirements.txt: Dependency definitions
-- /docker-compose.yml: Docker configuration file for launching Minio, Milvus, Elasticsearch, and Kibana
+- /test Test directory
+- /upload.py Document upload and semantic search, program entry
+- /requirements.txt Dependency definitions
+- /docker-compose.yml Docker file to start minio, milvus, elasticsearch, kibana
 
 ## ⚙️ Environment Setup
 - Start docker-desktop
-  - docker-compose down -v [minio, milvus, elasticsearch] to remove containers
-  - docker-compose up -d [minio, milvus, elasticsearch] to start containers
-- Execute docker-compose.yml to launch Minio, Milvus, and Elasticsearch
-- Run `pip install -r requirements.txt` to install dependencies
-- Execute `streamlit run ./upload.py` to start the application
+  - docker-compose down -v [minio, milvus, elasticsearch] Remove containers
+  - docker-compose up -d [minio, milvus, elasticsearch] Start containers
+- Execute docker-compose.yml to start minio, milvus, elasticsearch
+- Run pip install -r requirements.txt to install dependencies
+- streamlit run ./upload.py to start the program
+
+## 🎬 Demo Showcase
+### 📤 Homepage
+![Homepage](doc/1.png)
+
+### 📤 Document Upload
+![Document Upload](doc/2.png)
+
+### 📄 Elasticsearch File Storage
+![Elasticsearch File Storage](doc/3.png)
+
+### 📄 Milvus File Storage
+![Milvus File Storage](doc/7.png)
+
+### 📄 Minio File Storage
+![Minio File Storage](doc/4.png)
+
+### 📄 Semantic Search & Exact Search
+![Exact Search](doc/6.png)
+
+
 
 ## 🗺️ Roadmap
 - [x] Support file upload
-- [x] Support precise search and semantic search
+- [x] Support exact search and semantic search
 - [ ] Support locating specific document positions & online document viewing
 - [ ] Support LLM questions and answers
-- [ ] Support questions and answers for specific PDFs
+- [ ] Support specific PDF questions and answers
 - [ ] Other features
 
 ## 💬 Contact & Contribution
-- If you have any questions, please submit an Issue
-- If you're interested, feel free to submit a PR
+- If you have questions, please submit an Issue
+- If you're interested, welcome to submit a PR
 - For other inquiries, please contact me at: codemo1991@gmail.com
-
